@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=390, initial-scale=1.0">
+<title>Bug Whisperer - Input Screen Mockup</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 390px;
+  min-height: 844px;
+  background: #1a1612;
+  font-family: 'Inter', sans-serif;
+  color: #d4c5a9;
+  overflow: hidden;
+}
+/* Status Bar */
+.status-bar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 24px 8px; font-size: 14px; font-weight: 600; color: #fff;
+}
+.status-bar-right { display: flex; gap: 6px; align-items: center; }
+/* Nav */
+.nav {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 20px; border-bottom: 1px solid #3d3425;
+  background: rgba(26,22,18,0.8); backdrop-filter: blur(12px);
+}
+.nav-brand { display: flex; align-items: center; gap: 8px; }
+.nav-logo {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: linear-gradient(135deg, #8b7355, #e8d5a3);
+  display: flex; align-items: center; justify-content: center;
+}
+.nav-title { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: #e8d5a3; }
+/* Content */
+.content { padding: 24px 20px; }
+/* Badge */
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 14px; border-radius: 999px;
+  background: #2a2318; border: 1px solid #3d3425;
+  font-size: 12px; color: #9a8b6f; margin-bottom: 20px;
+}
+.badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
+/* Hero */
+.hero { text-align: center; margin-bottom: 28px; }
+.hero h1 {
+  font-family: 'Playfair Display', serif; font-size: 32px;
+  font-weight: 800; color: #e8d5a3; margin-bottom: 10px;
+}
+.hero p { font-size: 14px; color: #9a8b6f; line-height: 1.5; }
+/* Card */
+.card {
+  background: #2a2318; border: 1px solid #3d3425;
+  border-radius: 16px; padding: 20px; position: relative;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+.card::before {
+  content: ''; position: absolute; top: -10px; left: 50%;
+  transform: translateX(-50%); width: 20px; height: 20px;
+  border-radius: 50%; background: linear-gradient(180deg, #8b7355, #4a3f2f);
+  border: 2px solid rgba(232,213,163,0.3); z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+/* Demo buttons */
+.demo-label { font-size: 12px; color: #9a8b6f; margin-bottom: 8px; font-weight: 500; }
+.demo-buttons { display: flex; gap: 8px; margin-bottom: 16px; }
+.demo-btn {
+  padding: 6px 12px; border-radius: 8px; font-size: 12px;
+  background: #3d3425; border: 1px solid #4a3f2f;
+  color: #d4c5a9; cursor: pointer; white-space: nowrap;
+}
+/* Input group */
+.input-group { margin-bottom: 14px; }
+.input-label {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 500; color: #d4c5a9; margin-bottom: 6px;
+}
+.input-label svg { color: #9a8b6f; }
+.input-field {
+  width: 100%; padding: 10px 14px; border-radius: 12px;
+  background: #1a1612; border: 1px solid #3d3425;
+  color: #e8d5a3; font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; outline: none;
+}
+.input-field::placeholder { color: rgba(154,139,111,0.5); }
+/* Textarea group */
+.textarea-header { display: flex; justify-content: space-between; align-items: center; }
+.camera-btn {
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 12px; border-radius: 10px; font-size: 12px;
+  background: #3d3425; border: 1px solid #4a3f2f;
+  color: #d4c5a9; cursor: pointer; font-weight: 500;
+}
+textarea {
+  width: 100%; padding: 10px 14px; border-radius: 12px;
+  background: #1a1612; border: 1px solid #3d3425;
+  color: #e8d5a3; font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; line-height: 1.6; resize: none;
+  outline: none; min-height: 100px;
+}
+textarea::placeholder { color: rgba(154,139,111,0.5); }
+/* Submit */
+.submit-btn {
+  width: 100%; padding: 12px; border-radius: 12px; border: none;
+  background: linear-gradient(135deg, #8b7355, #e8d5a3);
+  color: #1a1612; font-size: 14px; font-weight: 600;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  cursor: pointer; margin-top: 4px;
+}
+/* Feature badges */
+.features { display: flex; justify-content: center; gap: 12px; margin-top: 16px; }
+.feature {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 10px 14px; border-radius: 12px;
+  background: rgba(42,35,24,0.5); border: 1px solid rgba(61,52,37,0.5);
+}
+.feature-icon { color: #8b7355; }
+.feature-text { font-size: 10px; color: #9a8b6f; }
+/* Footer hint */
+.footer-hint {
+  text-align: center; font-size: 10px; color: rgba(154,139,111,0.5);
+  margin-top: 12px;
+}
+</style>
+</head>
+<body>
+
+<!-- Status Bar -->
+<div class="status-bar">
+  <span>9:41</span>
+  <div class="status-bar-right">
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="white"><rect x="0" y="8" width="3" height="4" rx="0.5"/><rect x="4" y="5" width="3" height="7" rx="0.5"/><rect x="8" y="2" width="3" height="10" rx="0.5"/><rect x="12" y="0" width="3" height="12" rx="0.5"/></svg>
+    <svg width="16" height="12" viewBox="0 0 16 12" fill="white"><path d="M8 2C5 2 2.5 3.5 1 6c1.5 2.5 4 4 7 4s5.5-1.5 7-4c-1.5-2.5-4-4-7-4z" stroke="white" stroke-width="1" fill="none"/></svg>
+    <svg width="26" height="12" viewBox="0 0 26 12" fill="none"><rect x="0.5" y="0.5" width="22" height="11" rx="2" stroke="white" stroke-opacity="0.35"/><rect x="2" y="2" width="18" height="8" rx="1" fill="white"/><path d="M23.5 4v4a2 2 0 000-4z" fill="white" fill-opacity="0.4"/></svg>
+  </div>
+</div>
+
+<!-- Nav -->
+<div class="nav">
+  <div class="nav-brand">
+    <div class="nav-logo">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a1612" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    </div>
+    <span class="nav-title">Bug Whisperer</span>
+  </div>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9a8b6f" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 00-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 004 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65S8.93 17.38 9 18v4" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 18c-4.51 2-5-2-7-2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</div>
+
+<!-- Content -->
+<div class="content">
+  <!-- Badge -->
+  <div style="text-align:center">
+    <div class="badge"><div class="badge-dot"></div> AI-Powered Debugging</div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>Bug Whisperer</h1>
+    <p>Paste a stack trace and a repo link. Our detective AI investigates your codebase, traces the root cause, and proposes the fix.</p>
+  </div>
+
+  <!-- Input Card -->
+  <div class="card">
+    <!-- Demo -->
+    <div class="demo-label">Try a demo:</div>
+    <div class="demo-buttons">
+      <div class="demo-btn">🐍 Python — Null Reference</div>
+      <div class="demo-btn">⚡ JavaScript — Type Error</div>
+    </div>
+
+    <!-- Repo URL -->
+    <div class="input-group">
+      <div class="input-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 01-9 9"/></svg>
+        Repository URL
+      </div>
+      <div class="input-field">https://github.com/pallets/flask</div>
+    </div>
+
+    <!-- Stack Trace -->
+    <div class="input-group">
+      <div class="textarea-header">
+        <div class="input-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          Stack Trace / Error Log
+        </div>
+        <div class="camera-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          Camera
+        </div>
+      </div>
+      <textarea readonly>Traceback (most recent call last):
+  File "app.py", line 15, in process_request
+    result = handler.parse(user_input)
+  File "utils/parser.py", line 42, in parse
+    cleaned = data.strip().lower()
+AttributeError: 'NoneType' object has no attribute 'strip'</textarea>
+    </div>
+
+    <!-- Submit -->
+    <div class="submit-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      Investigate
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="features">
+    <div class="feature">
+      <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      <span class="feature-text">AI Analysis</span>
+    </div>
+    <div class="feature">
+      <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      <span class="feature-text">Multi-File</span>
+    </div>
+    <div class="feature">
+      <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <span class="feature-text">Root Cause</span>
+    </div>
+  </div>
+
+  <div class="footer-hint">Tip: Tap Camera to photograph a stack trace</div>
+</div>
+
+</body>
+</html>
